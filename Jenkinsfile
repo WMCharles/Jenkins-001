@@ -16,22 +16,20 @@ pipeline {
         }
         
         stage("regression testing") {
-            steps {
-                parallel {
-                    stage('chrome') {
-                        steps {
-                            echo 'Chrome'
-                        }
+            parallel {
+                stage('chrome') {
+                    steps {
+                        echo 'Chrome'
                     }
-                    stage('firefox') {
-                        steps {
-                            echo 'Firefox'
-                        }
+                }
+                stage('firefox') {
+                    steps {
+                        echo 'Firefox'
                     }
-                    stage('safari') {
-                        steps {
-                            echo 'Safari'
-                        }
+                }
+                stage('safari') {
+                    steps {
+                        echo 'Safari'
                     }
                 }
             }
