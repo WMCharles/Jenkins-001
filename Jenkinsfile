@@ -15,22 +15,22 @@ pipeline {
             }
         }
         
-        stage("regression testing"){
+        stage("regression testing") {
             steps {
                 parallel {
-                    stage('chrome'){
+                    stage('chrome') {
                         steps {
                             echo 'Chrome'
                         }
                     }
-                    stage('firefix'){
+                    stage('firefox') {
                         steps {
                             echo 'Firefox'
                         }
                     }
-                    stage('safari'){
+                    stage('safari') {
                         steps {
-                            echo 'safari'
+                            echo 'Safari'
                         }
                     }
                 }
