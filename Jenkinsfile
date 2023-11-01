@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage("build"){
             steps {
-                python3 -v
+               'python3 -v'
             }
         }
     }
