@@ -10,8 +10,17 @@ pipeline {
         }
 
         stage("deploy"){
-            steps {
-                sh 'python3 --version'
+            stages {
+                stage('deploy backend'){
+                    steps{
+                        echo 'deploying backend...'
+                    }
+                }
+                stage('deploy frontend'){
+                    steps {
+                        echo 'deploying frontend...'
+                    }
+                }
             }
         }
         
