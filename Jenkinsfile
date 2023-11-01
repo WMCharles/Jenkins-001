@@ -15,7 +15,7 @@ pipeline {
             }
         }
         
-        stage('regression testing'){
+        stage("regression testing"){
             steps {
                 parallel {
                     stage('chrome'){
