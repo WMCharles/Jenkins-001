@@ -11,21 +11,29 @@ pipeline {
 
         stage("deploy"){
             steps {
-               echo 'python3 -v'
+               sh 'python3 -v'
             }
         }
         
-        // 
         stage('regression testing'){
             steps {
-                parallel (
-                    chrome: {
-                        echo 'Chrome'
-                    },
-                    firefox: {
-                        echo 'Firefox'
+                parallel {
+                    stage('chrome'){
+                        steps {
+                            echo 'Chrome'
+                        }
                     }
-                )
+                    stage('firefix'){
+                        steps {
+                            echo 'Firefox'
+                        }
+                    }
+                    stage('safari'){
+                        steps {
+                            echo 'safari'
+                        }
+                    }
+                }
             }
         }
 
