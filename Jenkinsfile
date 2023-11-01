@@ -5,15 +5,30 @@ pipeline {
     stages {
         stage("build"){
             steps {
-                echo 'python3 --version'
+                sh 'python3 --version'
             }
         }
 
-        stage("Deployment"){
+        stage("deploy"){
             steps {
                echo 'python3 -v'
             }
         }
+        
+        // 
+        stage('regression testing'){
+            steps {
+                parallel (
+                    chrome: {
+                        echo 'Chrome'
+                    },
+                    firefox: {
+                        echo 'Firefox'
+                    }
+                )
+            }
+        }
+        
     }
 
     post {
@@ -37,6 +52,6 @@ pipeline {
         changed {
             echo 'Changed'
         }
-        
+
     }
 }
