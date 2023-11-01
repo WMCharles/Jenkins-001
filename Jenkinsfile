@@ -28,6 +28,12 @@ pipeline {
                 )
             }
         }
+
+        stage('release'){
+            steps {
+                echo 'Release'
+            }
+        }
         
     }
 
